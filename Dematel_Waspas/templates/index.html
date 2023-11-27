@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Sistem Pendukung Keputusan Sunscreen</title>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            /* Warna latar belakang */
+        }
+        
+        .container {
+            background-color: #ffffff;
+            /* Warna latar belakang kontainer */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        
+        h1 {
+            color: #28a745;
+            /* Warna teks judul besar */
+            text-align: center;
+        }
+        
+        h2 {
+            color: #28a745;
+            /* Warna teks judul */
+            text-align: center;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        label {
+            color: #ffc107;
+            /* Warna teks label */
+        }
+        
+        .btn-primary {
+            background-color: #ffc107;
+            /* Warna latar belakang tombol */
+            border-color: #ffc107;
+            /* Warna garis pinggir tombol */
+            color: #000000;
+            /* Warna teks tombol */
+        }
+        
+        .btn-primary:hover {
+            background-color: #ffca28;
+            /* Warna latar belakang tombol saat dihover */
+            border-color: #ffca28;
+            /* Warna garis pinggir tombol saat dihover */
+            color: #000000;
+            /* Warna teks tombol saat dihover */
+        }
+        
+        #photo-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        #photo {
+            max-width: 90%;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            /* Hapus jika tidak ingin ada sudut melengkung pada foto */
+        }
+        
+        footer {
+            background-color: #FFFB73;
+            /* Warna latar belakang footer */
+            padding: 20px;
+            color: #28a745;
+            /* Warna teks footer */
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            /* Memungkinkan flex items wrap ke baris berikutnya */
+        }
+        
+        footer div {
+            flex: 1;
+            /* Setiap div di footer akan memiliki proporsi yang sama */
+            margin-bottom: 10px;
+            /* Spasi antar bagian */
+        }
+        
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1>Sistem Pendukung Keputusan Pemilihan Sunscreen</h1>
+
+        <div id="photo-container">
+            <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/750x500/photo/2022/08/04/1736414007.png" alt="Foto Anda" id="photo">
+        </div>
+
+    </div>
+
+    <div class="container mt-5">
+        <h1>Data Produk SunScreen</h1>
+        <table id="sunscreenTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Produk</th>
+                    <th>SPF</th>
+                    <th>Harga</th>
+                    <th>Kondisi Kulit / Jenis Kulit</th>
+                    <th>Isi</th>
+                    <th>Finishing</th>
+                    <th>Formula</th>
+                    <th>PA</th>
+                    <th>Tekstur</th>
+                    <th>Packaging</th>
+                    <th>Wangi</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Sistem Pendukung Keputusan Sunscreen</h2>
+
+        <form id="decisionForm">
+            <!-- Kriteria 1 -->
+            <div class="form-group">
+                <label for="criteria1">Harga</label>
+                <select class="form-control" id="criteria1">
+                    <option value="">Pilih Harga</option>
+                    <option value="<100k">< Rp.100.000</option>
+                    <option value="101k-200k">Rp. 101.000 - Rp. 200.000</option>
+                    <option value="201k-300k">Rp. 201.000 - Rp. 301.000</option>
+                    <option value=">300k">> Rp. 300.000</option>
+                    <!-- Tambahkan opsi sesuai kebutuhan -->
+                </select>
+            </div>
+
+            <!-- Kriteria 2 -->
+            <div class="form-group">
+                <label for="criteria2">SPF</label>
+                <select class="form-control" id="criteria2">
+                    <option value="">Pilih SPF</option>
+                    <option value="30">SPF 30</option>
+                    <option value="35">SPF 35</option>
+                    <option value="40">SPF 40</option>
+                    <option value="50">SPF 50</option>
+                    <option value="50+">SPF 50+</option>
+                    <!-- Tambahkan opsi sesuai kebutuhan -->
+                </select>
+            </div>
+
+            <!-- Tambahkan kriteria lainnya hingga Kriteria 10 -->
+            <div class="form-group">
+                <label for="criteria3">Kondisi Kulit</label>
+                <select class="form-control" id="criteria3">
+                    <option value="">Pilih Kondisi Kulit</option>
+                    <option value="kering">Kering</option>
+                    <option value="kombinasi">Kombinasi</option>
+                    <option value="berminyak">Berminyak</option>
+                    <option value="semuatipekulit">Semua Tipe Kulit</option>
+                    <!-- Tambahkan opsi sesuai kebutuhan -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="criteria4">Isi</label>
+                <select class="form-control" id="criteria4">
+                    <option value="">Pilih Isi/ml</option>
+                    <option value="30">30ml</option>
+                    <option value="40">40ml</option>
+                    <option value="50">50ml</option>
+                    <option value="60">60ml</option>
+                    <option value="90">90ml</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="criteria5">Finishing</label>
+                <select class="form-control" id="criteria5">
+                    <option value="">Pilih Finishing</option>
+                    <option value="glow">Glow</option>
+                    <option value="semi-glow">Semi glow</option>
+                    <option value="matte-glow">Matte-glow</option>
+                    <option value="matte">Matte</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="criteria6">Formula</label>
+                <select class="form-control" id="criteria6">
+                    <option value="">Pilih Formula</option>
+                    <option value="mild-milk">Mild milk</option>
+                    <option value="lotion-watery-cream">Lotion watery cream</option>
+                    <option value="cream-watery">Cream watery</option>
+                    <option value="gel">Gel</option>
+                    <option value="water-base">Water base</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="criteria7">Tingkat Perlindungan UV (PA)</label>
+                <select class="form-control" id="criteria7">
+                    <option value="">Pilih Tingkat Perlindungan UV</option>
+                    <option value="pa">PA</option>
+                    <option value="pa-plus">PA+</option>
+                    <option value="pa-plus-plus">PA++</option>
+                    <option value="pa-plus-plus-plus">PA+++</option>
+                    <option value="pa-plus-plus-plus-plus">PA++++</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="criteria8">Tekstur</label>
+                <select class="form-control" id="criteria8">
+                    <option value="">Pilih Tekstur</option>
+                    <option value="kental">Kental</option>
+                    <option value="cream-watery">Cream watery</option>
+                    <option value="creamy">Creamy</option>
+                    <option value="cair">Cair</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="criteria9">Jenis Packaging</label>
+                <select class="form-control" id="criteria9">
+                    <option value="">Pilih Jenis Packaging</option>
+                    <option value="tube">Tube</option>
+                    <option value="botol">Botol</option>
+                    <option value="tube-spay">Tube Spay</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="criteria10">Wangi</label>
+                <select class="form-control" id="criteria10">
+                    <option value="">Pilih Wangi</option>
+                    <option value="berbau">Berbau</option>
+                    <option value="tidak-berbau">Tidak Berbau</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Proses Keputusan</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Hasil Preferensi</h2>
+        <div id="result">
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <h3>SunSmart Selector</h3>
+            <p>Sistem Pendukung Keputusan untuk Sunscreen. Program ini membantu pengguna dalam pengambilan keputusan terkait pemilihan sunscreen sesuai dengan tipe kulit wajah. Serta dengan menggunakan Metode Dematel dan Metode Waspas untuk memantu proses
+                memilih SunScreen ini. </p>
+        </div>
+        <div>
+            <h3>Authors:</h3>
+            <p>Yolendri Anisyahfitri<br>Valyssa Azzahra<br>Rahmaniah Kesuma W.<br>M. RIza Pahlevi</p>
+        </div>
+        <div>
+            <p>Contact:<br>Email: SunSmart@gmail.com<br>Telepon: 123-456-7890</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('decisionForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Menghentikan pengiriman formulir default
+
+                // Mendapatkan nilai dari setiap dropdown
+                var criteria1Value = document.getElementById('criteria1').value;
+                var criteria2Value = document.getElementById('criteria2').value;
+                var criteria3Value = document.getElementById('criteria3').value;
+                var criteria4Value = document.getElementById('criteria4').value;
+                var criteria5Value = document.getElementById('criteria5').value;
+                var criteria6Value = document.getElementById('criteria6').value;
+                var criteria7Value = document.getElementById('criteria7').value;
+                var criteria8Value = document.getElementById('criteria8').value;
+                var criteria9Value = document.getElementById('criteria9').value;
+                var criteria10Value = document.getElementById('criteria10').value;
+
+                // Kirim nilai dropdown ke server menggunakan AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/hitung_keputusan', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            var response = JSON.parse(xhr.responseText);
+                            var hasil_keputusan = response.hasil_keputusan;
+
+                            // Tampilkan hasil keputusan di dalam elemen HTML
+                            var resultDiv = document.getElementById('result');
+                            var resultList = document.createElement('ol');
+
+                            hasil_keputusan.forEach(function(item) {
+                                var listItem = document.createElement('li');
+                                listItem.textContent = item;
+                                resultList.appendChild(listItem);
+                            });
+                            resultDiv.innerHTML = ''; // Menghapus hasil sebelumnya
+                            resultDiv.appendChild(resultList);
+
+                            // var data_hotel = response.data_hotel;
+
+                            // displayData(data_hotel)
+
+                        } else {
+                            console.error('Ada masalah dalam permintaan.');
+                        }
+                    }
+                };
+                var formData =
+                    'criteria1=' + criteria1Value + '&criteria2=' + criteria2Value +
+                    '&criteria3=' + criteria3Value + '&criteria4=' + criteria4Value +
+                    '&criteria5=' + criteria5Value + '&criteria6=' + criteria6Value +
+                    '&criteria7=' + criteria7Value + '&criteria7=' + criteria7Value +
+                    '&criteria8=' + criteria8Value + '&criteria9=' + criteria9Value +
+                    '&criteria10=' + criteria10Value;
+                xhr.send(formData);
+            });
+        });
+    </script>
+</body>
+
+</html>
